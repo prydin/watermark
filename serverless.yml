@@ -1,0 +1,31 @@
+service: watermark
+provider:
+  name: vmw
+  runtime: vmw-nodejs
+  tenant: pontus
+  minNodes: 2
+  maxNodes: 10
+  
+functions:
+  watermark:
+    handler: handler.watermark
+    memorySize: 512
+    events:
+      - amqp:
+          method: post
+          path: minio_events
+          properties: 
+               type: exchange
+   
+plugins:
+   - stockholm-plugin
+
+package:
+  include:
+    - handler.js
+    - node_modules
+    - .env
+  exclude:
+    - .npm
+    - package.json
+    - serverless.env.yaml
