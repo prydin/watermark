@@ -8,8 +8,8 @@ function watermarkImage(bucket, minioPath, callback) {
 	    endPoint: '192.168.100.128',
 	    port: 9000,
 	    secure: false, 
-	    accessKey: 'V3EM60PUKUADTAX5AL03',
-	    secretKey: 'RaWKtTOdL71Y8yWQYhGnbTUFIh/dwbCkiXSs8bLi'
+	    accessKey: 'MYKEY',
+	    secretKey: 'TOPSECRET'
 	});
 
 	var tmpFile = Temp.path("img", "f-");
